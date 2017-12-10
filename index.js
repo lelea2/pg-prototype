@@ -17,14 +17,20 @@ const pool = new Pool(OPTIONS);
 
 client.connect();
 
-const text = 'SELECT COUNT(*) FROM transaction_hubs WHERE creator_fulfillment_id=$1'; // GROUP_BY creator_fulfillment_id';
-const values = ['1709055'];
+const users = process.env.USERS;
+const usersArr = users.split(',');
+// console.log(usersArr);
 
-client.query(text, values, (err, res) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log(res.rows[0].count);
-  }
-  client.end();
-});
+const text = 'SELECT COUNT(*) FROM transaction_hubs WHERE creator_fulfillment_id=$1'; // GROUP_BY creator_fulfillment_id';
+
+for (let i = 0; i < usersArr.length; i++) {
+  client.query(text, [usersArr[i]], (err, res) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(usersArr[i], res.rows[0].count);
+      // console.log(res.rows[0].count);
+    }
+    client.end();
+  });
+}
