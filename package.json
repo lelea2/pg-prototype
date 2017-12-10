@@ -1,0 +1,23 @@
+{
+  "name": "pg-prototype",
+  "version": "1.0.0",
+  "description": "Prototype for pg npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lelea2/pg-prototype.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lelea2/pg-prototype/issues"
+  },
+  "homepage": "https://github.com/lelea2/pg-prototype#readme",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "pg": "^7.4.0"
+  }
+}
